@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { fetchPopularMovies } from "../api";
+import { fetchPopularMovies, fetchMovieDetails } from "../api";
 
 export const MovieContext = createContext();
 

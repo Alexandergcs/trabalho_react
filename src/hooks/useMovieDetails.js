@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { fetchMovieDetails } from "../api";
+
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+const BASE_URL = "https://api.themoviedb.org/3";
 
 const useMovieDetails = (id) => {
   const [movie, setMovie] = useState(null);
@@ -8,9 +10,22 @@ const useMovieDetails = (id) => {
   useEffect(() => {
     const loadMovieDetails = async () => {
       if (!id) return;
-      const movieData = await fetchMovieDetails(id);
-      setMovie(movieData);
-      setLoading(false);
+
+      try {
+        const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=pt-BR`);
+        const data = await response.json();
+
+        if (data && !data.status_code) {
+          setMovie(data);
+        } else {
+          setMovie(null); // Se a API retornar erro, mantém movie como null
+        }
+      } catch (error) {
+        console.error("Erro ao buscar detalhes do filme:", error);
+        setMovie(null);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadMovieDetails();
