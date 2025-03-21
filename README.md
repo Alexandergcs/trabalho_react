@@ -1,86 +1,53 @@
-Catálogo de Filmes 
+Catálogo de Filmes - SPA com React
 
-Aplicação web desenvolvida com React.js para exibir um catálogo de filmes, permitindo a busca e exibição de detalhes dos filmes populares.
+Este é um projeto de Catálogo de Filmes, desenvolvido em React, que consome a API do TMDb para exibir filmes populares e permitir busca por títulos.
 
----
-
-Demonstração
-
-🖥️ Acesse o projeto rodando localmente em:
-```
-http://localhost:3000
-```
+Tecnologias Utilizadas
+- React
+- React Router
+- Context API
+- Fetch API
+- TMDb API
 
 ---
 
-Pré-requisitos
+Como Configurar o Projeto
 
-Antes de iniciar, certifique-se de ter instalado:
-- [Node.js](https://nodejs.org/) - Ambiente para executar JavaScript no backend
-- [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/) - Gerenciador de pacotes
-
----
-
-Instalação e Uso
-Clone o repositório
+Clone o Repositório
 
 ```sh
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+cd SEU_REPOSITORIO
 ```
 
-Instale as dependências
+Instale as Dependências
 
 ```sh
 npm install
 ```
 
-Configure a API Key da TMDb
+Configure a API Key no Arquivo `.env`
 
-1. Crie uma conta na [TMDb](https://www.themoviedb.org/).
-2. Gere uma API Key.
-3. No arquivo `src/api.js`, substitua `"SUA_API_KEY_AQUI"` pela chave gerada.
+Você precisa de uma API Key do [TMDb](https://www.themoviedb.org/settings/api) para que a aplicação funcione.
 
-```javascript
-const API_KEY = "SUA_API_KEY_AQUI";
-```
+1. Crie um arquivo na raiz do projeto chamado `.env`
+2. Adicione a seguinte linha dentro do arquivo:
 
-Inicie o projeto
+   ```
+   REACT_APP_TMDB_API_KEY=SUA_CHAVE_AQUI
+   ```
+   
+Importante: Não coloque aspas e nunca compartilhe sua API Key.
+
+---
+
+Execute o Projeto
+Após configurar o `.env`, inicie o projeto:
+
 ```sh
 npm start
 ```
 
-A aplicação abrirá automaticamente em:
-```
-http://localhost:3000
-```
+Agora, acesse http://localhost:3000/ para ver o projeto rodando. 🚀
 
----
-
-Tecnologias Utilizadas**
-React.js - Biblioteca JavaScript para criação de interfaces
-TMDb API - Base de dados de filmes e séries
-React Router - Gerenciamento de rotas no React
-CSS Puro - Estilização da aplicação
-
----
-
-Estrutura do Projeto
-
-📂 `spa_react_movies/`  
-├── 📂 `src/` → Código-fonte principal  
-│ ├── 📂 `components/` → Componentes reutilizáveis (Navbar)  
-│ ├── 📂 `pages/` → Páginas (Home, MovieDetails)  
-│ ├── 📂 `context/` → Gerenciamento de estado  
-│ ├── 📂 `hooks/` → Hooks customizados  
-│ ├── 📂 `styles/` → Arquivos CSS  
-│ ├── 📄 `api.js` → Configuração da API  
-│ ├── 📄 `App.js` → Componente principal  
-│ ├── 📄 `index.js` → Ponto de entrada da aplicação  
-│ ├── 📂 `public/` → Arquivos estáticos (index.html)  
-
----
-
-Autor
-
-Desenvolvido por [Alexander]  
+--
