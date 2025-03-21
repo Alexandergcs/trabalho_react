@@ -6,7 +6,7 @@ import MovieDetails from "./pages/MovieDetails";
 import Navbar from "./components/Navbar";
 import "./styles/global.css";
 
-const API_KEY = "b66f97b4ddd184d1f4d3831304498d2f";
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;  // 🔹 Agora usa a variável de ambiente
 const BASE_URL = "https://api.themoviedb.org/3";
 
 function App() {
@@ -18,6 +18,11 @@ function App() {
   }, []);
 
   const fetchPopularMovies = () => {
+    if (!API_KEY) {
+      console.error("⚠ API Key não encontrada! Verifique o arquivo .env");
+      return;
+    }
+
     setLoading(true);
     fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=pt-BR`)
       .then((response) => response.json())
@@ -29,6 +34,11 @@ function App() {
   };
 
   const searchMovies = (query) => {
+    if (!API_KEY) {
+      console.error("⚠ API Key não encontrada! Verifique o arquivo .env");
+      return;
+    }
+
     if (!query.trim()) {
       fetchPopularMovies(); // Se o campo for apagado, volta aos filmes populares
       return;
